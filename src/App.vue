@@ -18,7 +18,7 @@
 
     data() {
       return {
-        API_URL: "http://localhost:3000/api/", // API base URL
+        API_URL: "https://zealous-hen-pumps.cyclic.app/api/", // API base URL
         posts: [], // All posts array
         postCount: 6, // Variable to limit number of posts on the page
       }
