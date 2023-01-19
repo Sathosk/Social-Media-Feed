@@ -2,13 +2,13 @@
     <header>
        <div class="left">
             <a href="#">
-                <img src="../assets/images/TC-icon.jpg" alt="TC">
+                <img src="../assets/TC-icon.jpg" alt="TC">
             </a>
         </div>
 
         <div class="center">
             <a href="#">
-                <img src="../assets/images/inside-peoples-mind-logo.png" alt="logo">
+                <img src="../assets/inside-peoples-mind-logo.png" alt="logo">
             </a>
         </div>
 
