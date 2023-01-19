@@ -13,7 +13,7 @@
                     <button class="update-delete-button" @click=updatePost(post)>
                         <font-awesome-icon icon="fa-solid fa-pen-to-square" class="icon-color"/>
                     </button>
-                    <button class="update-delete-button" @click="$emit('removePost', index)">
+                    <button class="update-delete-button" @click="$emit('removePost', post._id)">
                         <font-awesome-icon icon="fa-solid fa-trash" class="icon-color"/>
                     </button>
                 </div>

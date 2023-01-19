@@ -67,15 +67,15 @@
       },
 
         // Method to delete posts
-        async removePost(index) {
+        async removePost(postId) {
             try {
-                console.log(index)
+                const index = this.posts.findIndex(obj => obj._id === postId);
                 const response = await fetch(`${this.API_URL}post/remove`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({_id: this.posts[index]._id, cloudinaryId: this.posts[index].cloudinaryId})
+                    body: JSON.stringify({_id: postId, cloudinaryId: this.posts[index].cloudinaryId})
                 });
 
                 this.posts.splice(index, 1); 
