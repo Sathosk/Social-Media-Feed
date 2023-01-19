@@ -1,7 +1,8 @@
 <template>
 
-  <header-component/>
-  <posts-component :count="postCount" :posts="posts" :apiUrl="API_URL" @newPost="newPost" @removePost="removePost" @updatedPost="updatedPost" @showMore="this.showMore"/>
+  <header-component @queryChange="searchChange"/>
+  <posts-component :count="postCount" :posts="posts" :apiUrl="API_URL" :searchInput="searchInput" 
+  @newPost="newPost" @removePost="removePost" @updatedPost="updatedPost" @showMore="this.showMore" />
   
 </template>
 
@@ -21,6 +22,7 @@
         API_URL: "https://zealous-hen-pumps.cyclic.app/api/", // API base URL
         posts: [], // All posts array
         postCount: 6, // Variable to limit number of posts on the page
+        searchInput: '',
       }
     },
 
@@ -32,6 +34,10 @@
             
             this.posts = posts.result;
             this.sortPost(this.posts);
+        },
+
+        searchChange: function (searchInput) {
+          this.searchInput = searchInput;
         },
 
         // Method to increase number of posts showing on the webpage

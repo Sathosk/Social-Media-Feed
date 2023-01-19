@@ -1,6 +1,6 @@
 <template>
     <section class="main-content">
-        <section class="post-container" v-for="(post, index) in posts.slice(0, count)" :key="post._id">
+        <section class="post-container" v-for="post in filteredList()" :key="post._id">
             <header class="post-header">
                 <div class="profile-pic">
                     <img :src="post.profilePic ? post.profilePic : '/src/assets/images/defaultProfile.png'" alt="profile picture">
@@ -34,8 +34,8 @@
         </section>
 
         <div class="see-more-container" @click="$emit('showMore')">
-            <button class="see-more-button" v-if="count < posts.length">See More</button>
-            <button class="see-more-button" v-if="count >= posts.length && count > 6" @click="returnToTop">Latest Post</button>
+            <button class="see-more-button" v-if="count < posts.length && this.currentPostRendered >= count">See More</button>
+            <button class="see-more-button" v-if="count >= posts.length && count > 6 && this.currentPostRendered > 6" @click="returnToTop">Latest Post</button>
         </div>
 
         <button class="add-button" data-hover="Create a new post" @click="showPostModal = true">
@@ -49,7 +49,7 @@
 
         <transition name="fade">
             <UpdatePostForm-component v-if="showUpdateModal" 
-            @form-submission-error="showErrorAlert" @form-submitted="handleUpdateFormSubmission" @close-updateModal="showUpdateModal = false" 
+            @form-submission-error="showErrorAlert" @form-submitted="handleUpdateFormSubmission" @close-updateModal="showUpdateModal = false"
             :apiUrl="apiUrl" :currentPost="currentPost"/>
         </transition>
     </section>
@@ -64,7 +64,8 @@
         props: [
             'posts',
             'apiUrl',
-            'count'
+            'count',
+            'searchInput'
         ],
         components: {
             'AddPostForm-component': AddPostForm,
@@ -77,7 +78,8 @@
                 showPostModal: false,
                 showUpdateModal: false,
                 currentPost: undefined,
-                convertedTimeStamp: ''
+                convertedTimeStamp: '', 
+                currentPostRendered: 0 
             }
         },
 
@@ -86,6 +88,20 @@
             convertTimeStamp(timeStamp) {
                 let date = new Date(timeStamp);
                return date.toString();
+            },
+
+            filteredList() {
+                let currentPosts = this.posts.filter((post) => {
+                   return post.name.toLowerCase().includes(this.searchInput.toLowerCase()); 
+                }).slice(0, this.count);
+
+                this.currentPostRendered = currentPosts.length;
+                console.log(this.currentPostRendered)
+                return currentPosts;
+
+                // return this.posts.filter((post) => {
+                //    return post.name.toLowerCase().includes(this.searchInput.toLowerCase()); 
+                // }).slice(0, this.count)
             },
 
             // Method to show alert if field is invalid

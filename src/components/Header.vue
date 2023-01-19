@@ -15,7 +15,7 @@
         <div class="right">
             <label for="search-bar">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="icon"/>
-                <input type="text" id="search-bar" name="search-bar" placeholder="Search...">
+                <input v-model="searchText" type="text" id="search-bar" name="search-bar" placeholder="Search by name..." v-on:input="() => this.$emit('queryChange', searchText)">
             </label>
         </div>
     </header>
@@ -23,7 +23,17 @@
 
 <script>
     export default {
-        name: 'HeaderComponent'
+        name: 'HeaderComponent',
+
+        data () {
+            return { 
+                searchText: '',
+            }
+        },
+
+        method: {
+
+        }
     }
 </script>
 
