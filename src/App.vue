@@ -69,6 +69,7 @@
         // Method to delete posts
         async removePost(index) {
             try {
+                console.log(index)
                 const response = await fetch(`${this.API_URL}post/remove`, {
                     method: 'DELETE',
                     headers: {

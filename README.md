@@ -4,6 +4,8 @@ This project simulates a social media feed similar to popular platforms, using M
 
 You can check out the project here: [PLACEHOLDER LINK]
 
+![image](https://user-images.githubusercontent.com/63148481/213070971-b4545fd6-9757-4c05-aaa8-18b174eb8f0e.png)
+
 ## How it was made
 
 Building this project was a thrilling journey. I used MongoDB as the database, Express as the backend framework, Vue as the frontend framework, and Node as the runtime environment. Additionally, I utilized Mongoose for database modeling, Multer for handling file uploads, Cloudinary for cloud-based image and video management, Jest for testing and Supertest to test the http endpoints. It was challenging to bring all these technologies together, but the result is a fully functional social media feed simulation that's ready to be used.
