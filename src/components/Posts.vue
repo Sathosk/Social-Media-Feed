@@ -3,7 +3,7 @@
         <section class="post-container" v-for="post in filteredList()" :key="post._id">
             <header class="post-header">
                 <div class="profile-pic">
-                    <img :src="post.profilePic ? post.profilePic : 'public/defaultProfile.png'" alt="profile picture">
+                    <img :src="post.profilePic ? post.profilePic : 'src/assets/defaultProfile.png'" alt="profile picture">
                 </div>
                 <div class="name-email">
                     <h4>{{ post.name[0].toUpperCase() + post.name.slice(1)}}</h4>
@@ -96,7 +96,6 @@
                 }).slice(0, this.count);
 
                 this.currentPostRendered = currentPosts.length;
-                console.log(this.currentPostRendered)
                 return currentPosts;
 
                 // return this.posts.filter((post) => {
