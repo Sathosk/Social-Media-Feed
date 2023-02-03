@@ -145,7 +145,7 @@
 
                     const data = await response.json();
 
-                    if (response.ok) {
+                    if (!response.ok) {
                         this.$emit('form-submitted');
                     }
                     
@@ -177,7 +177,7 @@
         padding: 20px;
         width: 40%;
         min-width: 450px;
-        background-color: white;
+        background-color: #fff;
         border-radius: 12px;
         box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.3);
 
