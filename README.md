@@ -2,7 +2,7 @@
 
 This project simulates a social media feed similar to popular platforms, using MongoDB, Express, Vue and Node as main frameworks. 
 
-You can check out the project here: [PLACEHOLDER LINK]
+You can check out the project here: https://social-media-feed.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/63148481/213070971-b4545fd6-9757-4c05-aaa8-18b174eb8f0e.png)
 
